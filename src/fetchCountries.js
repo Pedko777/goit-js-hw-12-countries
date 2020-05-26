@@ -2,13 +2,14 @@ import { error, defaultModules } from '@pnotify/core';
 import * as PNotifyMobile from '@pnotify/mobile';
 import { renderCountriesList, renderCard } from './markup.js';
 
+
 defaultModules.set(PNotifyMobile, {});
 
 const basisUrl = 'https://restcountries.eu/rest/v2/name/';
 const result = document.querySelector('.result')
 
 export const fetchCountries = inputValue => {
-  result.innerHTML = '';
+  
   fetch(`${basisUrl}${inputValue}`)
     .then(response => {
       // console.log(response.status);
@@ -17,6 +18,7 @@ export const fetchCountries = inputValue => {
       }
     })
     .then(data => {
+      result.innerHTML = '';
       if (data.length > 10) {
         error('Too many matches found. Please enter a more specific query!');
         // console.log('сильно много совпадений');
@@ -30,6 +32,6 @@ export const fetchCountries = inputValue => {
         // console.log('только 1 обьект')
         renderCard(data[0]);
       }
-      console.log(data);
+      // console.log(data);
     });
 };

@@ -9,6 +9,8 @@ export const renderCountriesList = (countriesArr) => {
     </ul>
     `;
     result.insertAdjacentHTML("beforeend", countriesList)
+    // result.innerHTML = `${countriesList}`
+
 }
 
 const renderCountriesListItem = countriesArr => countriesArr.reduce((acc, country) => {
@@ -18,5 +20,5 @@ const renderCountriesListItem = countriesArr => countriesArr.reduce((acc, countr
 
 export const renderCard = (country) => {
     result.innerHTML = `${cardTemplate(country)}`
-    // result.insertAdjacentHTML('afterend', cardTemplate(country))
+    // result.insertAdjacentHTML('beforeend', cardTemplate(country))
 }
